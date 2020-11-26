@@ -1,0 +1,100 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+/* color day in green when have full class */
+.full span{
+    background-color: #42B373 !important;
+    background-image :none !important;
+    color: #ffffff !important;
+}
+
+body{
+	background-color: #ecf0f1;
+}
+/*form styles*/
+#msform {
+	margin: 50px auto;
+}
+
+#msform fieldset {
+	/*border: 0 none;
+	padding: 20px 0px;
+	width: 80%;
+	
+	stacking fieldsets above each other 
+	*/
+	position: absolute;
+	right: 0;
+    left: 0;
+	
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+	border-radius: 3px;
+}
+
+/*progressbar*/
+#progressbar {
+	text-align: center;
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	text-transform: uppercase;
+	font-size: 11px;
+	width: 18%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
